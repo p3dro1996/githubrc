@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Cielo 💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to top right, #ffdde1, #ee9ca7);
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .card h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #e91e63;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .heart {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      animation: float 4s ease-in-out infinite;
+      z-index: 999;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 50px;
+      height: 80px;
+      position: absolute;
+      background: #e91e63;
+      border-radius: 50px 50px 0 0;
+    }
+
+    .heart::before {
+      transform: rotate(-45deg);
+      left: 0;
+    }
+
+    .heart::after {
+      transform: rotate(45deg);
+      right: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-150px); opacity: 0; }
+    }
+
+    button {
+      background: #e91e63;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #d81b60;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 15px;
+      }
+
+      .card h1 {
+        font-size: 1.5rem;
+      }
+
+      .card p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <img src="WhatsApp Image 2025-04-05 at 19.13.44.jpeg" alt="Nosotros" />
+  <h1>Para ti, Cielo 🌌</h1>
+  <p>
+    solo para recordarte que eres la cosita mas hermosa, y la razón para ponerle mas esfuerzo a la vida.<br>
+    Gracias por existir, te amo.
+  </p>
+  <button onclick="startMagic()">💖 Te amo 💖</button>
+  <audio id="song" loop>
+    <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
+    Tu navegador no soporta audio :(
+  </audio>
+</div>
+
+<script>
+  function startMagic() {
+    const audio = document.getElementById('song');
+    audio.play();
+
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100%';
+      heart.style.animationDuration = (2 + Math.random() * 2) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+  }
+</script>
+
+</body>
+</html>
